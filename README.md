@@ -7,7 +7,7 @@ This sample shows a simple "e-commerce" application that uses [Service Bus Relay
 1. Create a Service Bus Namespace through http://manage.windowsazure.com. Detailed instructions are available [here](https://azure.microsoft.com/en-gb/documentation/articles/service-bus-dotnet-how-to-use-relay/).
 2. Create or obtain the default management key.
 3. Update relevant configuration in app.config and web.config (`appSettings`).
-4. Run the Sample. Bith `StoreSample.StockService` and `StoreSample.Web` will start.
+4. Run the Sample. Both `StoreSample.StockService` and `StoreSample.Web` will start.
 
 ## StoreSample
 
