@@ -8,8 +8,12 @@ namespace StoreSample.Web.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, bool? ordered = false)
         {
+            // this is not a nice pattern, but it makes this particular part of the demo
+            // nice and easy, which is what is important
+            ViewBag.ShowOrderMessage = ordered.GetValueOrDefault(false);
+
             var product = StockServiceGateway.Instance.GetProduct(id);
             return View(new ProductViewModel()
             {
@@ -18,10 +22,10 @@ namespace StoreSample.Web.Controllers
             });
         }
 
-        public ActionResult Order(int id)
+        public ActionResult Order(int id, int quantity = 1)
         {
-
-            return RedirectToAction("Details", new { id = id });
+            OrderServiceGateway.SendOrder(id, quantity);
+            return RedirectToAction("Details", new { id = id, ordered = true });
         }
 
         public ActionResult RefreshStock(string returnUrl)

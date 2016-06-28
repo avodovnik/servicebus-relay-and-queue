@@ -42,5 +42,17 @@ namespace StoreSample.StockService
         }
 
         private List<Product> _products = new List<Product>();
+
+        internal int DecreaseStock(int productId, int quantity)
+        {
+            var p = _products.Single(x => x.Id == productId);
+
+            // this is obviously wrong; in the real world, we'd need to check the stock is there,
+            // and if not, reject the order, potentially moving it into a different queue, or a 
+            // backlog, and making sure there's a restocking process that started
+            p.Stock = p.Stock - quantity;
+
+            return p.Stock;
+        }
     }
 }

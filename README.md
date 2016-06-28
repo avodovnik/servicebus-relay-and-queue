@@ -8,6 +8,11 @@ This sample shows a simple "e-commerce" application that uses [Service Bus Relay
 
 2. Create, or use the default management key and copy the key's name and value to the app.config and web.config files
 
+
+## Why topics?
+
+Topics are used in this sample, because they are useful in a similar scenario, where you have potentially multiple subscribers listening to a single message. For example, you could have the StockService and an InvoicingService listening to the same "Order" message. When one is received the invoice is generated, stored and prepared for sending, while the StockService processes the order.  
+
 ## More information
 
 Patterns used:

@@ -4,6 +4,11 @@
     ViewBag.Title = "Details: " + Model.Product.Name;
 }
 
+@if(ViewBag.ShowOrderMessage == true)
+{
+    <span class="alert alert-success">The item has been ordered.</span>
+}
+
 <h2>@Model.Product.Name</h2>
 
 <div>
