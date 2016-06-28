@@ -1,0 +1,21 @@
+﻿@model StoreSample.Web.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Details: " + Model.Product.Name;
+}
+
+<h2>@Model.Product.Name</h2>
+
+<div>
+    <hr />
+    <p>Price: @Model.Product.Price.ToString("C")</p>
+    <p>
+        Stock quantity as of @Model.LastCacheRefresh.ToString(): @Model.Product.Stock - @Html.ActionLink("Refresh stock", "RefreshStock", new { returnUrl = Request.RawUrl })
+    </p>
+    <br />
+    @Html.ActionLink("Order", "Order", "Products", new { id = Model.Product.Id }, new { @class = "btn btn-primary" })
+    <br/>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</p>

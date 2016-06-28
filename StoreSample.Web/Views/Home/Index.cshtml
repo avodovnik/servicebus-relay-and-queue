@@ -1,0 +1,33 @@
+﻿@model List<StoreSample.Models.Product>
+@{
+    ViewBag.Title = "Front page";
+}
+
+<div class="jumbotron">
+    <h1>Service Bus Relay Sample</h1>
+    <p class="lead">
+        This sample shos how to use the Service Bus Relay and Topics to orchestrate between a cloud-deployed web application,
+        and an on-premises service, both in a synchronous and asynchronous way.
+    </p>
+    <p><a href="https://github.com/avodovnik/servicebus-relay-and-queue" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>List of products</h2>
+        <p>
+            Select a product to view its details.
+        </p>
+
+        <ul>
+            @foreach (var product in Model)
+            {
+                <li>
+                    @Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null) -
+                    @product.Price.ToString("C") @if (product.Stock == 0)
+                { <text>- product is currently not in stock</text> }
+                </li>
+            }
+        </ul>
+    </div>
+</div>
