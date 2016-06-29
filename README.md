@@ -59,7 +59,7 @@ The on-premises console application is comprised of a dummy _repository_ called 
 
 ### StoreSample.Web
 
-The web part is a simple ASP.NET MVC application that follows a standard Model-View-Controller pattern. The initial `Index` action  that is hit is defined in the `HomeController`. All it does is "call through" to a _gateway_ that serves as an abstraction towards the entire relay part of the solution. Inside that gateway you can see how the relay client is instantiated, as well as how the _cache-through_ pattern is used. 
+The web part is a simple ASP.NET MVC application that follows a standard Model-View-Controller pattern. The initial `Index` action  that is hit is defined in the `HomeController`. All it does is "call through" to a _gateway_ that serves as an abstraction towards the entire relay part of the solution. Inside that gateway you can see how the relay client is instantiated, as well as how the _cache-aside_ pattern is used. 
 
 
 ## More information
